@@ -1,0 +1,68 @@
+@import "compass/css3/transform";
+@import "../../scss/variables.scss";
+
+.main {
+    border-top: 0;
+    padding: 10px;
+    width: $collapsed-brand-list-width;
+    &.expandedBox {
+        width: 100%;
+    }
+
+    a {
+        white-space: nowrap;
+    }
+}
+
+.brandList {
+    overflow-x: hidden;
+    max-height: 500px;
+}
+
+.listItem {
+    white-space: normal;
+}
+
+.searchBox {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    .inputBox {
+        flex: 0;
+        display: none;
+    }
+
+    .buttonBox {
+        flex-grow: 0;
+        flex-basis: 12px;
+        button {
+            margin-left: 0;
+            display: block;
+
+            span {
+                @include scale( 1, 1 )
+            }
+        }
+    }
+}
+
+.expandedBox {
+    .inputBox {
+        flex: 1;
+        display: block;
+    }
+
+    .buttonBox {
+        button {
+            margin-left: 8px;
+            display: block;
+
+            span {
+                @include scale( -1, 1 )
+            }
+        }
+    }
+}

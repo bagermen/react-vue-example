@@ -1,0 +1,30 @@
+.modelBox {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    .addModelBtn {
+        flex: 0.5;
+        button {
+            margin-left: 8px;
+            display: block;
+        }
+    }
+
+    .selectModel {
+        flex: 1;
+    }
+
+    .yearOfModel {
+        flex: 0.5;
+    }
+}
+
+.description {
+    resize: vertical;
+    min-height: 50px;
+    max-height: 140px;
+    overflow: auto;
+}

@@ -1,0 +1,48 @@
+@import "compass/css3/flexbox";
+@import "compass/css3/transition";
+@import "../../scss/variables.scss";
+.loaderApp {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+    align-items: flex-start;
+
+    >div {
+        @include transition(all 0.3s ease);
+    }
+
+    .brandList {
+        @include flex(0 1 12px);
+        margin-right: 10px;
+    }
+
+    .brandListActive {
+        @include flex(1);
+    }
+
+    .advertList {
+        @include flex(3);
+    }
+
+    .advertListActive {
+        @include flex(1);
+    }
+}
+
+@media (max-width: 750px) {
+    .loaderApp {
+        @include flex-direction(column);
+
+        .brandList {
+            @include flex(0);
+            margin-right: 0;
+            width: 100%;
+            overflow-y: auto;
+        }
+
+        .advertList {
+            @include flex(1);
+        }
+    }
+}

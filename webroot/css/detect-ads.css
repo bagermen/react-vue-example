@@ -1,0 +1,86 @@
+.custompadding {
+    padding-left:1.5%;
+}
+.col-md-1{
+    padding-right: 0px;
+    padding-left: 0px;
+    width: 9.8%;
+}
+.col-md-2{
+    padding-right: 0px;
+    padding-left: 0px;
+    width: 19.6%;
+}
+.thumbnail {
+    padding: 4px 4px 0px 4px;
+    border: 0 none;
+    box-shadow: none;
+    margin-bottom: 0px;
+}
+.img-rounded {
+    border-radius: 3px;
+}
+.caption{
+    text-align: center;
+    font-size: 12px;
+}
+.ad-start{
+    position: absolute;
+    z-index: 1;
+    top:7px;
+    right:7px;
+}
+.ad-stop{
+    position: absolute;
+    z-index: 1;
+    top:7px;
+    left:7px;
+}
+.ad-detected-automatic{
+    background-color: #ccc;
+    opacity: 0.75;
+    filter: alpha(opacity=75); /* msie */
+}
+.ad-detected-candidate{
+    background-color: rgb(248, 237, 118);
+    opacity: 0.75;
+    filter: alpha(opacity=75); /* msie */
+}
+.ad-detected-pending{
+    background-color: rgb(118, 248, 123);
+    opacity: 0.75;
+    filter: alpha(opacity=75); /* msie */
+}
+.ad-discarded-candidate{
+    background-color: #FF9560;
+    opacity: 0.75;
+    filter: alpha(opacity=75); /* msie */
+}
+.ad-prev-candidate{
+    background-color: #E2DC95;
+    opacity: 0.75;
+    filter: alpha(opacity=75); /* msie */
+}
+.ad-marked{
+    background-color: rgb(248, 237, 118);
+    opacity: 0.95;
+    filter: alpha(opacity=95); /* msie */
+}
+.ad-marked-highlighted{
+    background-color: rgb(186, 213, 218);
+    opacity: 0.95;
+    filter: alpha(opacity=95); /* msie */
+    font-weight: bold;
+}
+.thumb-box{
+    position: absolute;
+    top: 26%;
+    right: 25%;
+    width: 50%;
+    height: 33%;
+    border: 1px dashed #000;
+    outline: 1px dashed #fff;
+}
+.thumbselected {
+border: 3px solid rgb(102, 107, 243);
+}

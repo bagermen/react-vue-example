@@ -1,0 +1,127 @@
+.filters-box {
+    margin-top: 10px;
+    line-height: 30px;
+    border: solid 1px #D4D2D2;
+    background-color: #F9F9F9;
+    padding: 5px;
+    border-radius: 5px;
+}
+
+.vcenter {
+    display: inline-block;
+    vertical-align: middle;
+    float: none;
+}
+
+.btn-uuid {
+    background-color: #A6BBD0;
+    border-color: #A6BBD0;
+    color: #FFFFFF;
+}
+
+.btn.btn-dealership {
+    background-color: #6BADEF;
+    border-color: #6BADEF;
+    color: #FFFFFF;
+}
+
+.btn.btn-dealergroup {
+    background-color: #928DC1;
+    border-color: #928DC1;
+    color: #FFFFFF;
+}
+
+.btn.btn-status {
+    background-color: #E0A572;
+    border-color: #E0A572;
+    color: #FFFFFF;
+}
+
+.btn.btn-skip_empty {
+    background-color: #ABA4A4;
+    border-color: #ABA4A4;
+    color: #FFFFFF;
+}
+
+.devices .chart-box {
+    min-height: 260px;
+    position: relative;
+}
+
+.devices .chart-box .inner-box {
+    width: 100%;
+    position: absolute;
+    bottom: 0;
+}
+
+.devices .chart-box .inner-box .chart p {
+    line-height: 150px;
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+}
+
+.devices .chart-box .inner-box .chart-details {
+    display: block;
+}
+
+.devices .chart-box .inner-box .device_info_table {
+    color: #3c8dbc;
+    font-size: 80%;
+    display: inline-block;
+    text-align: left;
+    margin: 2px 0 0 0;
+    padding: 0;
+}
+
+.devices .chart-box .inner-box .device_info_table tr>td:first-child {
+    font-weight: bold;
+    padding-right: 5px;
+    text-align: right;
+}
+
+.devices .chart-box .inner-box .device_info_table_wrap {
+    text-align: right;
+    position: relative;
+    right: 90px;
+}
+
+#monitor .device-status {
+    font-size: 25px;
+    line-height: 0;
+    vertical-align: -2px;
+}
+
+.custom_pager .page_info {
+    position:relative;
+    float:left;
+    vertical-align:middle;
+}
+
+.custom_pager .page_info {
+    position:relative;
+    float:left;
+    vertical-align:middle;
+    padding-right: 9px;
+}
+
+.custom_pager .page_info .form-control.current_value {
+    display:inline;
+    width:50px;
+    text-align:center;
+    padding: 3px;
+}
+
+.no-spin {
+    -moz-appearance: textfield !important;
+}
+.no-spin::-webkit-inner-spin-button, .no-spin::-webkit-outer-spin-button {
+    -webkit-appearance: none !important;
+    margin: 0;
+}
+
+.btn.btn-inventory_status {
+    background-color: #ea8484;
+    border-color: #c37676;
+    color: #FFFFFF;
+}

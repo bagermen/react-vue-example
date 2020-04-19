@@ -1,0 +1,9 @@
+.idea
+.vscode
+application/external-libraries/vendor
+cltv.sublime-project
+cltv.sublime-workspace
+node_modules
+/data
+run/.env
+# webroot/build

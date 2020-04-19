@@ -1,0 +1,80 @@
+version: '3.0'
+services:
+    web:
+        container_name: "cltv_web_${CI_COMMIT_REF_NAME}"
+        image: besogon1/cltv
+        environment:
+            XDEBUG_CONFIG: $XDEBUG_CONFIG
+
+            UPDATE_LINKS_CMD: $UPDATE_LINKS_CMD
+            CLTV_MYSQL_SERVER: $CLTV_MYSQL_SERVER_AUTH
+            CLTV_MYSQL_SERVER_USER: $CLTV_MYSQL_SERVER_USER
+            CLTV_MYSQL_SERVER_DB: $CLTV_MYSQL_SERVER_DB
+            CLTV_MYSQL_SERVER_PW: $CLTV_MYSQL_SERVER_PW
+
+            DAG_MYSQL_SERVER: $DAG_MYSQL_SERVER_AUTH
+            DAG_MYSQL_SERVER_DB: $DAG_MYSQL_SERVER_DB
+            DAG_MYSQL_SERVER_USER: $DAG_MYSQL_SERVER_USER
+            DAG_MYSQL_SERVER_PW: $DAG_MYSQL_SERVER_PW
+
+            IS_DEVELOPMENT: $IS_DEVELOPMENT
+            DOCUMENTROOT: $DOCUMENTROOT
+
+            APACHE_RUN_GROUP: $APACHE_RUN_GROUP
+            APACHE_RUN_USER: $APACHE_RUN_USER
+            APACHE_LOG_DIR: $APACHE_LOG_DIR
+            APACHE_LOCK_DIR: $APACHE_LOCK_DIR
+            APACHE_PID_FILE: $APACHE_PID_FILE
+# USE DOCKER HUB TO GET IMAGE
+#        build:
+#            context: "./containers/web"
+#            args:
+#                - TIMEZONE
+#                - DOCUMENTROOT
+        ports:
+            - '${CLTV_STAGING_PORT_DEMO}:80'
+        volumes:
+            - ${CLTV_LOGS}:/var/log/apache2:rw
+            - ${CLTV_ASSET}:${DOCUMENTROOT}:rw
+            - ${CLTV_ASSET_UPLOADS}:${DOCUMENTROOT}/data:rw
+        depends_on:
+            - dagdb
+            - cltvdb
+        networks:
+          cltv:
+            aliases:
+                - web
+    dagdb:
+        container_name: "cltv_${DAG_MYSQL_SERVER_AUTH}_${CI_COMMIT_REF_NAME}"
+        command: 'sshpass -p ${DAG_CONNECT_PW} ssh -o StrictHostKeyChecking=no -4  -N -n ${DAG_CONNECT_USER} -p 21098 -L *:3306:127.0.0.1:3306'
+        build:
+            context: "./containers/ssh"
+        networks:
+            cltv:
+                aliases:
+                    - ${DAG_MYSQL_SERVER_AUTH}
+
+    cltvdb:
+        container_name: "cltv_${CLTV_MYSQL_SERVER_AUTH}_${CI_COMMIT_REF_NAME}"
+        build:
+            context: "./containers/mysql"
+#        command:
+#          - "mysqld"
+#          - "--init-file=/var/lib/reset.sql"
+        environment:
+              MYSQL_ROOT_PASSWORD: $CLTV_MYSQL_SERVER_PW
+        ports:
+            - '${CLTV_MYSQL_SERVER_PORT}:3306'
+        volumes:
+            - ${CLTV_STORAGE}:/var/lib/mysql:rw
+        networks:
+          cltv:
+            aliases:
+                - ${CLTV_MYSQL_SERVER_AUTH}
+volumes:
+  cltv-storage:
+    external: true
+networks:
+    cltv:
+        external:
+            name: cltv
