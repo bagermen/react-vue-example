@@ -22,7 +22,7 @@
   "dependencies": {
     "ajv": "^6.6.1",
     "autoprefixer": "^9.4.2",
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "babel-preset-react-app": "^6.1.0",
     "babel-preset-stage-2": "^6.24.1",
     "classnames": "^2.2.6",
